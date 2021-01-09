@@ -1,19 +1,24 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_flutter_ui/data.dart';
+import 'package:groceries_flutter_ui/homeScreen.dart';
 
 class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context).size;
+
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Container(
-          width: MediaQuery.of(context).size.width,
+          width: mediaQuery.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               /* <----------- Image and Text Section ------------> */
               Container(
-                height: MediaQuery.of(context).size.height * 0.8,
+                height: mediaQuery.height * 0.8,
                 margin: EdgeInsets.symmetric(horizontal: 60),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -38,14 +43,14 @@ class IntroScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              /* <----------- Bottom Section ------------> */
               Container(
-                // height: MediaQuery.of(context).size.height * 0.1,
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.15,
+                      width: mediaQuery.width * 0.15,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -68,13 +73,26 @@ class IntroScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: primaryColor),
-                      child: Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 50,
-                        color: Colors.white,
+                    // Next Button
+                    InkWell(
+                      splashColor: Colors.green,
+                      borderRadius: BorderRadius.circular(15),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => HomeScreen()));
+                      },
+                      child: Container(
+                        height: mediaQuery.height * 0.1,
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle, color: primaryColor),
+                        child: Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 50,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],
