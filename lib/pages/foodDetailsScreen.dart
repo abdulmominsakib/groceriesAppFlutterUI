@@ -162,8 +162,9 @@ class FoodDetails extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-                  padding: EdgeInsets.all(15),
+                  margin: EdgeInsets.symmetric(
+                      horizontal: 20, vertical: mediaQuery.height * 0.04),
+                  padding: EdgeInsets.all(mediaQuery.height * 0.02),
                   decoration: BoxDecoration(
                     color: primaryColor,
                     borderRadius: BorderRadius.circular(15),

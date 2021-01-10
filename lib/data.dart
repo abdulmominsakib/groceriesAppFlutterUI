@@ -46,6 +46,7 @@ const Color scaffoldColor = Color(0xFF010A43);
 const Color primaryColor = Color(0xFF39CF89);
 const Color secondaryColor = Color(0xFF2B3676);
 const Color thirdColor = Color(0xFF444D88);
+const Color cardBackground = Color(0xFF081257);
 
 /* <----------- Text Style ------------> */
 const TextStyle h1 =

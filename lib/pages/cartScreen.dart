@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_flutter_ui/data.dart';
 import 'package:groceries_flutter_ui/pages/homeScreen.dart';
+import 'package:groceries_flutter_ui/pages/paymentScreen.dart';
 
 class CartScreen extends StatelessWidget {
   @override
@@ -96,8 +98,14 @@ class CartScreen extends StatelessWidget {
                 ],
               ),
             ),
+            /* <----------- End of Total Price ------------> */
+
+            /* <----------- Payment button ------------> */
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => PaymentScreen()));
+              },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                 padding: EdgeInsets.all(15),
@@ -117,7 +125,8 @@ class CartScreen extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
+            /* <----------- End of Payment Button ------------> */
           ],
         )),
       ),
