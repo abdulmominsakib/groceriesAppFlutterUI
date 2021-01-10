@@ -62,6 +62,7 @@ const TextStyle lessImportantText = TextStyle(
 const TextStyle normalText = TextStyle(color: Colors.white);
 
 /* <----------- Height Gap ------------> */
+const hGap5 = SizedBox(height: 5);
 const hGap10 = SizedBox(height: 10);
 const hGap15 = SizedBox(height: 15);
 const hGap20 = SizedBox(height: 20);

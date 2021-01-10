@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:groceries_flutter_ui/data.dart';
-import 'package:groceries_flutter_ui/introScreen.dart';
+import 'package:groceries_flutter_ui/pages/introScreen.dart';
 
 void main() {
   runApp(MyApp());
-  
+
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: scaffoldColor,
   ));

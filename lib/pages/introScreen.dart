@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_flutter_ui/data.dart';
-import 'package:groceries_flutter_ui/homeScreen.dart';
+import 'package:groceries_flutter_ui/pages/homeScreen.dart';
 
 class IntroScreen extends StatelessWidget {
   @override

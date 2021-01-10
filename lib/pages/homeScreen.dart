@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_flutter_ui/data.dart';
-import 'package:groceries_flutter_ui/foodDetailsScreen.dart';
+import 'package:groceries_flutter_ui/pages/foodDetailsScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -145,16 +145,28 @@ class HomeScreen extends StatelessWidget {
                                   FoodListTile(
                                     onTap: () {
                                       Navigator.push(
-                                          context,
-                                          CupertinoPageRoute(
-                                              builder: (context) => FoodDetails(
-                                                    food: foodList[0],
-                                                  )));
+                                        context,
+                                        CupertinoPageRoute(
+                                          builder: (context) => FoodDetails(
+                                            food: foodList[0],
+                                          ),
+                                        ),
+                                      );
                                     },
                                     mediaQuery: mediaQuery,
                                     food: foodList[0],
                                   ),
                                   FoodListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(
+                                          builder: (context) => FoodDetails(
+                                            food: foodList[1],
+                                          ),
+                                        ),
+                                      );
+                                    },
                                     mediaQuery: mediaQuery,
                                     food: foodList[1],
                                   ),
@@ -283,9 +295,12 @@ class FoodListTile extends StatelessWidget {
               children: [
                 Container(
                   width: mediaQuery.width * 0.4,
-                  child: Image.asset(
-                    'assets/images/foods/${food.foodImage}.png',
-                    fit: BoxFit.contain,
+                  child: Hero(
+                    tag: food.foodImage,
+                    child: Image.asset(
+                      'assets/images/foods/${food.foodImage}.png',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 hGap10,
@@ -407,11 +422,15 @@ class HeadingAppBar extends StatelessWidget {
     this.hasBackButton = false,
     this.onTapBack,
     this.cartTap,
+    this.hasCartButton = true,
+    this.title = '',
   }) : super(key: key);
 
   final bool hasBackButton;
+  final bool hasCartButton;
   final Function onTapBack;
   final Function cartTap;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -419,7 +438,7 @@ class HeadingAppBar extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
             onTap: hasBackButton ? onTapBack : null,
@@ -428,6 +447,12 @@ class HeadingAppBar extends StatelessWidget {
               color: Colors.white,
             ),
           ),
+
+          Text(
+            title,
+            style: h2,
+          ),
+
           // Cart Button
           InkWell(
             onTap: cartTap,
@@ -439,18 +464,25 @@ class HeadingAppBar extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: Stack(
                 children: [
-                  Icon(
-                    Icons.shopping_bag,
-                    color: Colors.white,
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.green,
-                      radius: 4,
-                    ),
-                  ),
+                  hasCartButton
+                      ? Icon(
+                          Icons.shopping_bag,
+                          color: Colors.white,
+                        )
+                      : Icon(
+                          Icons.close,
+                          color: Colors.white,
+                        ),
+                  hasCartButton
+                      ? Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.green,
+                            radius: 4,
+                          ),
+                        )
+                      : SizedBox(),
                 ],
               ),
             ),

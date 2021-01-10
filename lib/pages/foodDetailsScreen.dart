@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_flutter_ui/data.dart';
-import 'package:groceries_flutter_ui/homeScreen.dart';
+import 'package:groceries_flutter_ui/pages/cartScreen.dart';
+import 'package:groceries_flutter_ui/pages/homeScreen.dart';
 
 class FoodDetails extends StatelessWidget {
   final Food food;
@@ -20,13 +22,24 @@ class FoodDetails extends StatelessWidget {
                 onTapBack: () {
                   Navigator.pop(context);
                 },
+                cartTap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => CartScreen(),
+                    ),
+                  );
+                },
               ),
               /* <----------- End Of AppBar ------------> */
 
               /* <----------- Image ------------> */
               Container(
                 width: mediaQuery.width * 0.8,
-                child: Image.asset('assets/images/foods/${food.foodImage}.png'),
+                child: Hero(
+                    tag: food.foodImage,
+                    child: Image.asset(
+                        'assets/images/foods/${food.foodImage}.png')),
               ),
 
               /* <----------- Food Name And Ratings ------------> */
@@ -112,6 +125,7 @@ class FoodDetails extends StatelessWidget {
                         ],
                       ),
                     ),
+                    /* <----------- End of Counter ------------> */
                   ],
                 ),
               ),
@@ -138,30 +152,41 @@ class FoodDetails extends StatelessWidget {
               /* <----------- End Product Description ------------> */
 
               /* <----------- Add To Cart Button ------------> */
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.shopping_cart_rounded,
-                      color: Colors.white,
-                      size: 30,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => CartScreen(),
                     ),
-                    wGap10,
-                    Text(
-                      'Add To Cart',
-                      style: h1.copyWith(fontSize: 20),
-                    ),
-                  ],
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: primaryColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.shopping_cart_rounded,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      wGap10,
+                      Text(
+                        'Add To Cart',
+                        style: h1.copyWith(fontSize: 20),
+                      ),
+                    ],
+                  ),
                 ),
-              )
+              ),
+              /* <----------- End Of Add To cart button ------------> */
             ],
           ),
         ),
