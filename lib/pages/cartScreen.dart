@@ -29,7 +29,7 @@ class CartScreen extends StatelessWidget {
             hGap30,
             /* <----------- List of Products ------------> */
             Expanded(
-              child: Column(
+              child: ListView(
                 children: [
                   CartItem(
                     mediaQuery: mediaQuery,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:groceries_flutter_ui/data.dart';
+import 'package:groceries_flutter_ui/pages/homeScreen.dart';
 import 'package:groceries_flutter_ui/pages/introScreen.dart';
 
 void main() {
@@ -19,9 +21,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: scaffoldColor,
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       debugShowCheckedModeBanner: false,
-      home: IntroScreen(),
+      routes: {
+        '/': (context) => IntroScreen(),
+        'home': (context) => HomeScreen(),
+      },
     );
   }
 }

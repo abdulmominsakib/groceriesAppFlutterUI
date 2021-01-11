@@ -50,7 +50,7 @@ const Color cardBackground = Color(0xFF081257);
 
 /* <----------- Text Style ------------> */
 const TextStyle h1 =
-    TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold);
+    TextStyle(fontSize: 26, color: Colors.white, fontWeight: FontWeight.bold);
 
 const TextStyle h2 =
     TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold);

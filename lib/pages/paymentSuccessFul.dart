@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_flutter_ui/data.dart';
+import 'package:groceries_flutter_ui/pages/homeScreen.dart';
 
 class PaymentSuccesful extends StatelessWidget {
   @override
@@ -27,11 +28,9 @@ class PaymentSuccesful extends StatelessWidget {
             /* <----------- PayButton ------------> */
             InkWell(
               onTap: () {
-                Navigator.push(
+                Navigator.popUntil(
                   context,
-                  CupertinoPageRoute(
-                    builder: (context) => PaymentSuccesful(),
-                  ),
+                  ModalRoute.withName('/'),
                 );
               },
               child: Container(
@@ -50,7 +49,7 @@ class PaymentSuccesful extends StatelessWidget {
                     wGap10,
                     Text(
                       'Track Order',
-                      style: h1.copyWith(fontSize: 20),
+                      style: h1.copyWith(fontSize: mediaQuery.height * 0.02),
                     ),
                   ],
                 ),
