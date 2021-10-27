@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_flutter_ui/data.dart';
-import 'package:groceries_flutter_ui/pages/homeScreen.dart';
 
 class PaymentSuccesful extends StatelessWidget {
   @override

@@ -6,7 +6,7 @@ import 'package:groceries_flutter_ui/pages/homeScreen.dart';
 
 class FoodDetails extends StatelessWidget {
   final Food food;
-  const FoodDetails({Key key, @required this.food}) : super(key: key);
+  const FoodDetails({Key? key, required this.food}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

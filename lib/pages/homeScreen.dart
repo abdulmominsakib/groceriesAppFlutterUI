@@ -266,19 +266,19 @@ class HomeScreen extends StatelessWidget {
 
 class FoodListTile extends StatelessWidget {
   const FoodListTile({
-    Key key,
-    @required this.mediaQuery,
-    @required this.food,
+    Key? key,
+    required this.mediaQuery,
+    required this.food,
     this.onTap,
   }) : super(key: key);
 
   final Size mediaQuery;
   final Food food;
-  final Function onTap;
+  final Function? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Container(
         height: mediaQuery.height * 0.25,
         width: mediaQuery.width * 0.4,
@@ -348,9 +348,9 @@ class FoodListTile extends StatelessWidget {
 
 class CategoriesListTile extends StatelessWidget {
   const CategoriesListTile({
-    Key key,
-    @required this.mediaQuery,
-    @required this.category,
+    Key? key,
+    required this.mediaQuery,
+    required this.category,
   }) : super(key: key);
 
   final Size mediaQuery;
@@ -388,7 +388,7 @@ class CategoriesListTile extends StatelessWidget {
 
 class SearchBox extends StatelessWidget {
   const SearchBox({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -418,7 +418,7 @@ class SearchBox extends StatelessWidget {
 
 class HeadingAppBar extends StatelessWidget {
   const HeadingAppBar({
-    Key key,
+    Key? key,
     this.hasBackButton = false,
     this.onTapBack,
     this.cartTap,
@@ -428,8 +428,8 @@ class HeadingAppBar extends StatelessWidget {
 
   final bool hasBackButton;
   final bool hasCartButton;
-  final Function onTapBack;
-  final Function cartTap;
+  final Function? onTapBack;
+  final Function? cartTap;
   final String title;
 
   @override
@@ -441,7 +441,7 @@ class HeadingAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
-            onTap: hasBackButton ? onTapBack : null,
+            onTap: hasBackButton ? onTapBack as void Function()? : null,
             child: Icon(
               hasBackButton ? Icons.arrow_back_ios_rounded : Icons.menu_rounded,
               color: Colors.white,
@@ -455,7 +455,7 @@ class HeadingAppBar extends StatelessWidget {
 
           // Cart Button
           InkWell(
-            onTap: cartTap,
+            onTap: cartTap as void Function()?,
             child: Container(
               decoration: BoxDecoration(
                 color: Color(0xFF444D88),

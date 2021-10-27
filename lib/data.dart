@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 /* <----------- Categories ------------> */
 class Category {
-  final String name, image;
-  final int backColor;
-  Category({this.name, this.image, this.backColor});
+  String name, image;
+  int backColor;
+  Category({
+    required this.name,
+    required this.image,
+    required this.backColor,
+  });
 }
 
 List<Category> categories = [
@@ -21,9 +25,14 @@ List<Category> categories = [
 
 /* <----------- Food Class ------------> */
 class Food {
-  final String foodName, foodImage, foodUnit;
-  final double foodPrice;
-  Food({this.foodImage, this.foodName, this.foodUnit, this.foodPrice});
+  String foodName, foodImage, foodUnit;
+  double foodPrice;
+  Food({
+    required this.foodImage,
+    required this.foodName,
+    required this.foodUnit,
+    required this.foodPrice,
+  });
 }
 
 List<Food> foodList = [

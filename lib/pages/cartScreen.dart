@@ -136,8 +136,8 @@ class CartScreen extends StatelessWidget {
 
 class CartItem extends StatelessWidget {
   const CartItem(
-      {Key key,
-      @required this.mediaQuery,
+      {Key? key,
+      required this.mediaQuery,
       this.itemName,
       this.madeIn,
       this.price,
@@ -146,7 +146,7 @@ class CartItem extends StatelessWidget {
       : super(key: key);
 
   final Size mediaQuery;
-  final String itemName, madeIn, price, image, unit;
+  final String? itemName, madeIn, price, image, unit;
 
   @override
   Widget build(BuildContext context) {
