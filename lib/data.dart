@@ -1,15 +1,6 @@
-import 'package:flutter/material.dart';
 
-/* <----------- Categories ------------> */
-class Category {
-  String name, image;
-  int backColor;
-  Category({
-    required this.name,
-    required this.image,
-    required this.backColor,
-  });
-}
+import 'models/category_model.dart';
+import 'models/food_model.dart';
 
 List<Category> categories = [
   Category(
@@ -24,16 +15,6 @@ List<Category> categories = [
 ];
 
 /* <----------- Food Class ------------> */
-class Food {
-  String foodName, foodImage, foodUnit;
-  double foodPrice;
-  Food({
-    required this.foodImage,
-    required this.foodName,
-    required this.foodUnit,
-    required this.foodPrice,
-  });
-}
 
 List<Food> foodList = [
   Food(
@@ -49,37 +30,3 @@ List<Food> foodList = [
     foodPrice: 5,
   )
 ];
-
-/* <----------- Colors ------------> */
-const Color scaffoldColor = Color(0xFF010A43);
-const Color primaryColor = Color(0xFF39CF89);
-const Color secondaryColor = Color(0xFF2B3676);
-const Color thirdColor = Color(0xFF444D88);
-const Color cardBackground = Color(0xFF081257);
-
-/* <----------- Text Style ------------> */
-const TextStyle h1 =
-    TextStyle(fontSize: 26, color: Colors.white, fontWeight: FontWeight.bold);
-
-const TextStyle h2 =
-    TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold);
-
-const TextStyle lessImportantText = TextStyle(
-  fontSize: 15,
-  color: Colors.white38,
-);
-
-const TextStyle normalText = TextStyle(color: Colors.white);
-
-/* <----------- Height Gap ------------> */
-const hGap5 = SizedBox(height: 5);
-const hGap10 = SizedBox(height: 10);
-const hGap15 = SizedBox(height: 15);
-const hGap20 = SizedBox(height: 20);
-const hGap30 = SizedBox(height: 30);
-const hGap40 = SizedBox(height: 40);
-/* <----------- Weight Gap ------------> */
-const wGap5 = SizedBox(width: 5);
-const wGap10 = SizedBox(width: 10);
-const wGap15 = SizedBox(width: 15);
-const wGap20 = SizedBox(width: 20);
